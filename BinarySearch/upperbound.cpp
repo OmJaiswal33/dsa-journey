@@ -17,20 +17,21 @@ int main()
     int low = 0,high = n-1,mid,ans;
     while(low<=high)
     {
-        mid = low+(high-low)/2;
+        mid = low + (high-low)/2;
         if(v[mid]==target)
         {
-            ans = mid;
-            high = mid-1;
+            ans = mid+1;
+            break;
         }
-        else if(v[mid]>target)
-        {
-            high = mid - 1;
-        }
-        else 
+        else if(v[mid]<target)
         {
             low = mid + 1;
         }
+        else 
+        {
+            ans = mid;
+            high = mid - 1;
+        }
     }
-    cout<<"Lower bound is :  "<<ans;
+    cout<<"Upper Bound is : "<<ans;
 }
